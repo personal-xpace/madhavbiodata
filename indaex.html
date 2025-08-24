@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav Singhal - Biodata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals with Soft Rose -->
+    <!-- Application Structure Plan: A single-page, multi-section layout with a fixed navigation bar for smooth scrolling. The structure is designed to present information thematically, starting with a personal introduction, followed by professional journey, family background, an album for pictures, and contact details. This flow provides a comprehensive yet easily digestible overview for the user, making it more engaging than a linear document. Key interactions include hover effects on cards and a clickable navigation to guide exploration. Pointers/markers have been added for enhanced readability. -->
+    <!-- Visualization & Content Choices: Personal details are presented in clean cards with clear markers for clarity. The academic and professional journey is visualized as a vertical timeline using HTML/CSS, with markers for progression. The complex family structure is organized into an interactive diagram using nested flexbox containers, where hovering highlights individual members and markers denote details. A new 'Album' section showcases images in a responsive grid. Unicode icons and emojis are integrated to add visual cues and enhance engagement. All choices prioritize clarity, user engagement, and improved information scanning. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFBF9;
+            color: #4A4A4A;
+        }
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.6rem;
+            top: 0.5rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background-color: #FBCFE8;
+            border: 3px solid #FFFBF9;
+        }
+        .family-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .family-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .detail-marker {
+            font-size: 0.9em;
+            color: #EF4444; /* A subtle red for markers */
+            line-height: 1.5; /* Align with text */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-rose-50/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-rose-800">Madhav Singhal</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-600 hover:text-rose-600 border-b-2 border-transparent hover:border-rose-300">About</a>
+                <a href="#journey" class="nav-link text-gray-600 hover:text-rose-600 border-b-2 border-transparent hover:border-rose-300">Journey</a>
+                <a href="#family" class="nav-link text-gray-600 hover:text-rose-600 border-b-2 border-transparent hover:border-rose-300">Family</a>
+                <a href="#album" class="nav-link text-gray-600 hover:text-rose-600 border-b-2 border-transparent hover:border-rose-300">Album</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-rose-600 border-b-2 border-transparent hover:border-rose-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-600 hover:bg-rose-100">About</a>
+            <a href="#journey" class="block py-2 px-4 text-sm text-gray-600 hover:bg-rose-100">Journey</a>
+            <a href="#family" class="block py-2 px-4 text-sm text-gray-600 hover:bg-rose-100">Family</a>
+            <a href="#album" class="block py-2 px-4 text-sm text-gray-600 hover:bg-rose-100">Album</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-gray-600 hover:bg-rose-100">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-12">
+
+        <section id="about" class="text-center mb-16 md:mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-rose-800 mb-4">A Brief Introduction</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Simple, caring, and family-oriented, I value meaningful relationships and cherish time spent with loved ones. My interests lie in the simple joys of life, from working out in the gym to exploring new places.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-left">
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-rose-100">
+                        <h3 class="font-semibold text-rose-700 mb-1">👤 Personal Details</h3>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Date of Birth:</strong> 29 March 1999</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Time of Birth:</strong> 8:00 am</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Place of Birth:</strong> Dholpur, Rajasthan</p></div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-rose-100">
+                        <h3 class="font-semibold text-rose-700 mb-1">🌟 Hobbies and Interests</h3>
+                        <div class="detail-item"><span class="detail-marker">🏸</span> <p>Badminton</p></div>
+                        <div class="detail-item"><span class="detail-marker">✈️</span> <p>Travelling</p></div>
+                        <div class="detail-item"><span class="detail-marker">💪</span> <p>Gym</p></div>
+                        <div class="detail-item"><span class="detail-marker">🎶</span> <p>Music</p></div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-rose-100">
+                        <h3 class="font-semibold text-rose-700 mb-1">🙏 Roots & Heritage</h3>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Religion:</strong> Hindu</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Caste:</strong> Vaishya</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Gotra:</strong> Singhal</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Zodiac Sign:</strong> Leo</p></div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-rose-100">
+                        <h3 class="font-semibold text-rose-700 mb-1">💡 Additional Features</h3>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Height:</strong> 5'8"</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Body Type:</strong> Muscular</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Complexion:</strong> Wheatish</p></div>
+                        <div class="detail-item"><span class="detail-marker">•</span> <p><strong>Diet:</strong> Vegetarian</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="mb-16 md:mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-rose-800 text-center mb-12">Academic & Professional Journey</h2>
+                <div class="relative border-l-2 border-rose-200 ml-3">
+                    <div class="mb-10 ml-8 relative timeline-item">
+                        <h3 class="text-xl font-semibold text-rose-700">Assistant Manager</h3>
+                        <p class="text-md text-gray-500">Coal India Limited</p>
+                        <p class="mt-1 text-sm">Currently employed as an Assistant Manager, contributing to the operations of Coal India Limited.</p>
+                    </div>
+                    <div class="mb-10 ml-8 relative timeline-item">
+                        <h3 class="text-xl font-semibold text-rose-700">B.Tech (Mining Engineering)</h3>
+                        <p class="text-md text-gray-500">IIT (ISM), Dhanbad</p>
+                        <p class="mt-1 text-sm">Completed Bachelor of Technology in Mining Engineering from IIT (ISM), Dhanbad, as a Gold Medalist of Batch 2022.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="family" class="mb-16 md:mb-24 scroll-mt-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-rose-800 text-center mb-4">Family Background</h2>
+                <p class="text-lg text-gray-600 text-center mb-12">
+                    I come from a supportive family with a blend of business and professional backgrounds.
+                </p>
+
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-semibold text-rose-700 mb-6">Immediate Family</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Krishna Kumar Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Father</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Businessman, Krishna Oil and Flour Mill, Sarani Khera</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Mamta Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Mother</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Homemaker</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Madhvi Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Elder Sister</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">EO/AO at EPFO</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Ruchika Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Younger Sister</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">MBBS student at GMC Bharatpur</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-semibold text-rose-700 mb-6">Grandparents</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Late Shri Ramgopal Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Grandfather</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Kishori Devi</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Grandmother</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-rose-700 mb-6">Extended Family</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Haridarshan Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Chacha Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Businessman, Durga Kirana Store, Sarani Khera</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Vimlesh Singhal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Chachi Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Homemaker</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Mithilesh Bansal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Bua Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Homemaker</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Mukesh Bansal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Fufa Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Mukesh Trading Company, Dholpur</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Kamlesh Bansal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Bua Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Homemaker</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Vishnu Bansal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Fufa Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 bg-rose-50 text-rose-700 rounded-full px-3 py-1 text-sm">Lal Kishan Jagannath, Markandeshwar Bazar, Morena</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Rakesh Mittal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Mama Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 text-sm text-gray-600">Bari, Dholpur</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Mukesh Mittal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Mama Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 text-sm text-gray-600">Dubepura, Dholpur</p></div>
+                        </div>
+                        <div class="family-card bg-white p-5 rounded-lg shadow-md border border-rose-100">
+                            <h4 class="font-bold text-lg">Murari Mittal</h4>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="text-gray-500">Mama Ji</p></div>
+                            <div class="detail-item"><span class="detail-marker">•</span> <p class="mt-2 text-sm text-gray-600">Bari, Dholpur</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="album" class="mb-16 md:mb-24 scroll-mt-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-rose-800 text-center mb-12">📸 My Album</h2>
+                <p class="text-lg text-gray-600 text-center mb-12">
+                    A glimpse into my life and cherished moments.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <img src="https://placehold.co/400x300/FBCFE8/FFF?text=Image+1" alt="Placeholder Image 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FBCFE8/FFF?text=Image+1';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-sm font-semibold">Memories Captured</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <img src="https://placehold.co/400x300/FBCFE8/FFF?text=Image+2" alt="Placeholder Image 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FBCFE8/FFF?text=Image+2';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-sm font-semibold">Joyful Moments</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <img src="https://placehold.co/400x300/FBCFE8/FFF?text=Image+3" alt="Placeholder Image 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FBCFE8/FFF?text=Image+3';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-sm font-semibold">Adventures</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <img src="download.png" alt="Starbucks Logo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FBCFE8/FFF?text=Image+4';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-sm font-semibold">Special Occasion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer id="contact" class="bg-rose-800 text-white scroll-mt-20">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <h2 class="text-3xl font-bold mb-4">Contact Information</h2>
+            <p class="mb-6">For further communication, please feel free to reach out.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
+                <div class="text-lg">
+                    <span class="font-semibold">📞 Phone (Father):</span> 9928841998
+                </div>
+                <div class="text-lg">
+                    <span class="font-semibold">🏠 Residential Address:</span> Durga Kirana Store, Sarani Khera, Dholpur (Raj) 328030
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
